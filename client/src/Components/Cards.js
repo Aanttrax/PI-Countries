@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Card from './Card';
+import './Cards.css';
 
 function Cards(props) {
     let { countries } = props;
 
     return (
-        <div>
+        <div className = 'container'>
             {Array.isArray(countries) && countries.map((c,i) => (
-                <Link to = {`/country/${c.alpha3Code}`} key = {`link_${c.alpha3Code}`}>
+                <Link className = 'linkcard' to = {`/country/${c.alpha3Code}`} key = {`link_${c.alpha3Code}`}>
                     <Card
                         name = { c.name }
                         flag = { c.flag }

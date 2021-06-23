@@ -1,12 +1,13 @@
 import React from "react";
+import './Card.css'
 
 function Card(props) {
     let { flag, name, region } = props;
 
     return (
-        <div>
+        <div className = 'card'>
             <div>
-                <img src = {flag} alt = 'flag'/>
+                <img className = 'img' src = {flag} alt = 'flag'/>
             </div>
             <div>
                 <h4>{name}</h4>

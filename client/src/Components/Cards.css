@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.linkcard {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+}

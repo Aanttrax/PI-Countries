@@ -1,0 +1,17 @@
+.detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    background-color: rgb(237, 245, 164);
+}
+
+.flag {
+    width: 50%;   
+}
+

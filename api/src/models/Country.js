@@ -38,11 +38,14 @@ module.exports = (sequelize) => {
     },
 
     area:{
-      type: DataTypes.FLOAT
+      type: DataTypes.FLOAT,
     },
     
     population:{
       type: DataTypes.INTEGER
-    }
-  });
+    },
+
+  }
+  //,{timestamps: false,}
+  );
 };

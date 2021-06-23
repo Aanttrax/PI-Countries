@@ -2,6 +2,7 @@ import React, { useEffect, useState } from'react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { getById } from '../actions/actions';
+import './DetailPage.css';
 
 function DetailPage() {
 
@@ -16,9 +17,9 @@ function DetailPage() {
     }, [dispatch, id]);
 
     return (
-        <div>
+        <div className = 'detail'>
             <div>
-                <img src = {flag} alt = 'flag'/>
+                <img className = 'flag' src = {flag} alt = 'flag' />
             </div>
             <div>
                 <p>Name:{name}</p>

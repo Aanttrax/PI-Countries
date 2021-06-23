@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Cards from './Cards';
+import './HomePage.css'
 
 
 function HomePage() {

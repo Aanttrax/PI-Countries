@@ -5,7 +5,7 @@ const { Country, Activity, Season } = require('../db');
 router.post('/country', async (req, res) => {
     
     let { name, dificulty, duration, country } = req.body;
-
+    console.log(req.body)
     try {
         let addActivity = await Activity.findOrCreate({
             where: {
@@ -15,14 +15,15 @@ router.post('/country', async (req, res) => {
             }
         });
 
-        let anexCountry = await Country.findAll({
+        let anexCountry = await Country.findOne({
             include: { model: Activity },
-            where: { name: {[Op.ilike]: `${country}`}}
+            where: { 
+                name: {
+                     [Op.iLike]: `${country}` } }
         });
 
         console.log(anexCountry, addActivity)
-
-        await addActivity[0].setCountries(anexCountry[0]);
+        await addActivity[0].setCountries(anexCountry);
         res.json(addActivity)
 
     }catch (error){

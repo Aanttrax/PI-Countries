@@ -67,6 +67,11 @@ router.get("/", async (req, res) => {
             })
             return country? res.json(country) : res.sendStatus(404)
         } else {
+
+            let season = ["Winter", "Autumn", "Spring", "Summer"]
+            await Promise.all(season.map((s) => Season.findOrCreate({ where: { name: s } })))
+
+
             let apiCountries = await axios.get('https://restcountries.eu/rest/v2/all')
             await Promise.all(apiCountries.data.map((c) => {
                 let info = {
@@ -76,7 +81,7 @@ router.get("/", async (req, res) => {
                     capital: c.capital? c.capital : 'no Capital',
                     region: c.region,
                     subregion: c.subregion,
-                    //area: c.area,
+                    //area: (c.area)? (c.area) : 0,
                     //population: c.population
                 };
                 Country.findOrCreate({where: info})
