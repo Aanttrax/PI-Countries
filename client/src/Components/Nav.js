@@ -7,14 +7,14 @@ function Nav() {
     return (
         <div className = 'cont'>
             <div className = 'nav'>
-                <NavLink className='link' to= '/home/1'>
+                <NavLink className = 'link' to = '/home/1'>
                     <img src = {logo} alt='logo' width="50" height="50"/>
                     Home
                 </NavLink>
-                <NavLink className='link' to = '/add'>
+                <NavLink className = 'link' to = '/add'>
                     Add Activity
                 </NavLink>
-                <NavLink className='link' to = '/about'>
+                <NavLink className = 'link' to = '/about'>
                     About
                 </NavLink>
             </div>

@@ -19,6 +19,49 @@ function SearchPage() {
         dispatch(getByName(filtro.name, filtro.region, filtro.activity))
     }, [dispatch, filtro]);
 
+
+    let [page, setPage] = useState(0);
+    let [p, setP] = useState(0);
+
+    let lastPage = (countriesPage.length)/10;
+
+    let listado = []
+
+    if(lastPage>1){
+
+        for(let i=p;i< p+10;i++){
+            if(countriesPage[i]){
+                listado.push(countriesPage[i])
+            }
+        }
+
+    } else {
+        listado = countriesPage
+    }
+
+    function sigPage(e) {
+        e.preventDefault();
+
+        if(page < lastPage-1) {
+            setPage(page + 1)
+            setP(p + 10)
+        } else {
+            document.getElementById('sig').disabled = false;
+        }
+    };
+
+    function antPage(e) {
+        e.preventDefault();
+
+        if(page > 0) {
+            setPage(page - 1)
+            setP(p - 10)
+        } else {
+            document.getElementById('ant').disabled = false;
+        }
+    };
+
+
     return (
         <div>
             <div>
@@ -39,11 +82,15 @@ function SearchPage() {
                     <option value='Polar'>Polar</option>
                 </select>
                 <select onChange = {(e) => setFiltro({...filtro, activity: e.target.value})}>
-                    <option>All</option>
+                    <option value = ''> All</option>
                     {act.map((item, i) => <option key={i} value={item}>{item}</option>)}
                 </select>
+                <button id ="ant" onClick={(e) => antPage(e)}>{'<'}
+                </button>
+                <button id ='sig' onClick={(e) => sigPage(e)}>{'>'}
+                </button>
             </div>
-            <Cards countries={countriesPage}/>
+            <Cards countries={listado}/>
         </div>
     )
 };

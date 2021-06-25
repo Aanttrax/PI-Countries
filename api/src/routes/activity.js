@@ -19,7 +19,7 @@ router.post('/country', async (req, res) => {
             include: { model: Activity },
             where: { 
                 name: {
-                     [Op.iLike]: `${country}` } }
+                     [Op.iLike]: `%${country}%` } }
         });
 
         console.log(anexCountry, addActivity)

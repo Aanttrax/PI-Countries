@@ -63,7 +63,7 @@ router.get("/", async (req, res) => {
         if(name) {
             let country = await Country.findAll({
                 include: {model: Activity},
-                where : {name:{[Op.iLike]:`${name}`}}
+                where : {name:{[Op.iLike]:`%${name}%`}}
             })
             return country? res.json(country) : res.sendStatus(404)
         } else {

@@ -3,6 +3,7 @@ import { getPage } from "../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+//import SearchPage from "./SearchPage";
 import Cards from './Cards';
 import './HomePage.css'
 
@@ -27,10 +28,10 @@ function HomePage() {
         e.preventDefault();
 
         if(page < lastPage) {
-            document.getElementById('prev').disabled = false;
+            //document.getElementById('prev').disabled = false;
             setPage(page + 1)
         } else {
-            document.getElementById('next').disabled = true;
+            document.getElementById('next').disabled = false;
         }
     };
 
@@ -38,15 +39,16 @@ function HomePage() {
         e.preventDefault();
 
         if(page > 1) {
-            document.getElementById('next').disabled = false;
+            //document.getElementById('next').disabled = false;
             setPage(page - 1)
         } else {
-            document.getElementById('prev').disabled = true;
+            document.getElementById('prev').disabled = false;
         }
     };
 
     function changeSort(e) {
         setSort(e.target.value)
+        setPage(1)
     };
 
     return (

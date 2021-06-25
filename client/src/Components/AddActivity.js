@@ -9,7 +9,7 @@ function AddActivity() {
     let [activity, setActivity] = useState({countries:[], name: '', dificulty: "1", duration:""})
     let [season, setSeason] = useState([]);
 
-    let countriesList = useSelector(state => state.countries);
+    const countriesList = useSelector(state => state.countries);
 
     const handleCheck = (e) => {
         e.target.checked && setSeason([...season, e.target.value])
@@ -29,6 +29,8 @@ function AddActivity() {
         if(validateCountry(country)) {
             setActivity({...activity, countries: [...activity.countries, country]})
             setCountry('')
+            let c = document.getElementById('c')
+            c.value =''
         } else {
             alert ('no Country')
         }
@@ -60,6 +62,11 @@ function AddActivity() {
         return countriesList.some(c => c.name === a)
     };
 
+    let countryChange = (e) => {
+        let cn = e.target.value
+        setCountry(cn);
+    }
+
     return (
         <div>
             <form>
@@ -76,7 +83,7 @@ function AddActivity() {
                 </div>
                 <div>
                     <label>Country:</label><br/>
-                    <input type='text' name='country' onChange={(e) => setCountry(e.target.value)}/>
+                    <input id ='c' type='text' name='country' onChange={countryChange}/>
                     <button onClick={addCountry}>+</button><br/>
                     {Array.isArray(activity.countries) && activity.countries.map((c,i) => 
                     <label key={i}> {c} 
