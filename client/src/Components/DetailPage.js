@@ -18,7 +18,7 @@ function DetailPage() {
 
     return (
         <div className = 'detail'>
-            <div>
+            <div className = 'bandera'>
                 <img className = 'flag' src = {flag} alt = 'flag' />
             </div>
             <div>
@@ -34,7 +34,7 @@ function DetailPage() {
                 <h3>Activities:</h3>
                 <ul>
                     {activities && activities.length ? 
-                    activities.map(a => <li>{a.name}  Duration:{a.duration} Difficultad:{a.dificulty}</li>) :
+                    activities.map((a,i) => <li key={i}>{a.name}  Duration:{a.duration} Difficultad:{a.dificulty}</li>) :
                     <li>There are no activities</li>}
                 </ul>
             </span>

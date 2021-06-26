@@ -4,14 +4,19 @@
     justify-content: space-around;
     align-items: center;
     padding: 50px;
-    margin-top: 150px;
+    margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
-    height: 400px;
+    height: 500px;
     background-color: rgb(237, 245, 164);
+    font-size: larger;
+}
+
+.bandera {
+    width: 40%;
 }
 
 .flag {
-    width: 50%;   
+    width: 60%;   
 }
 

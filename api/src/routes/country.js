@@ -85,6 +85,7 @@ router.get("/", async (req, res) => {
                     //population: c.population
                 };
                 Country.findOrCreate({where: info})
+                //console.log(typeof(c.area))
             }))
             return res.status(201).json('Base de Datos Cargados')
         }

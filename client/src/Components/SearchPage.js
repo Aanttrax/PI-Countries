@@ -20,7 +20,7 @@ function SearchPage() {
     }, [dispatch, filtro]);
 
 
-    let [page, setPage] = useState(0);
+    let [pag, setPag] = useState(0);
     let [p, setP] = useState(0);
 
     let lastPage = (countriesPage.length)/10;
@@ -42,8 +42,8 @@ function SearchPage() {
     function sigPage(e) {
         e.preventDefault();
 
-        if(page < lastPage-1) {
-            setPage(page + 1)
+        if(pag < lastPage-1) {
+            setPag(pag + 1)
             setP(p + 10)
         } else {
             document.getElementById('sig').disabled = false;
@@ -53,8 +53,8 @@ function SearchPage() {
     function antPage(e) {
         e.preventDefault();
 
-        if(page > 0) {
-            setPage(page - 1)
+        if(pag > 0) {
+            setPag(pag - 1)
             setP(p - 10)
         } else {
             document.getElementById('ant').disabled = false;
